@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-kubernetes
+spec:
+  selector:
+    matchLabels:
+      name: hello-kubernetes
+  template:
+    metadata:
+      labels:
+        name: hello-kubernetes
+    spec:
+      containers:
+        - name: app
+ #         image: arielao/python-docker:latest
+          image: arielao/counter_new:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
